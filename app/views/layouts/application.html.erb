@@ -8,14 +8,22 @@
 </head>
 <body>
 <header id="fixed_header">
+  <div id="header_container">
   <h1>Falling Sky Media Manager</h1>
+  <nav class="main_links">
+    <a href="/pictures">All Pictures</a>
+    <a href="/videos">All Videos</a>
+  </nav>
+  </div>
 </header>
 <main>
   <%= yield %>
 </main>
 
 <footer>
-  <h4>Falling Sky Incorporated</h4>
+  <div id="footer_container">
+  <h4>Not copyrighted at all</h4>
+  </div>
 </footer>
 </body>
 </html>

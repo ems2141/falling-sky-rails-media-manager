@@ -17,20 +17,31 @@
 body {
     margin: 0px;
     padding: 0px;
+    background: lightskyblue;
 }
 #fixed_header {
-    text-align: center;
     height: 60px;
-    background: greenyellow;
+    background: darkblue;
+    width: 100%;
+    padding-top: 20px;
 }
 
 #fixed_header h1 {
     margin: 0px;
+    float: left;
+    color: #fff;
+    margin-left: 30px;
+    font-family: sans-serif;
+}
+
+#header_container {
+    width: 960px;
+    margin: auto;
 }
 
 footer {
     height: 40px;
-    background: #CCCC99;
+    background: #444;
     text-align: center;
     margin: 0px;
     padding: 0px;
@@ -39,25 +50,37 @@ footer {
 footer h4 {
     margin: 0px;
     padding-top: 10px;
+    text-align: left;
+    color: #fff;
+    margin-left: 30px;
+    font-family: sans-serif;
+}
+
+#footer_container {
+    width: 960px;
+    margin: auto;
 }
 
 main {
     width: 960px;
     margin: 0 auto;
+    min-height: 500px;
     border-right: 3px solid darkolivegreen;
     border-left: 3px solid darkolivegreen;
-    background: lightskyblue;
-
+    background: #fff;
 }
 .main_links {
     width: 500px;
     margin: 0px auto;
-    text-align: center;
+    text-align: right;
+    float: right;
+
 }
 .main_links a {
-    color: darkblue;
+    color: #fff;
     font: bold 18px arial, sans-serif;
-    text-decoration: none;
     padding: 10px;
     display: inline-block;
+    margin-right: 30px;
+
 }
