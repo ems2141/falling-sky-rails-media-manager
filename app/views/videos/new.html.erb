@@ -1,0 +1,6 @@
+<%= form_for @video do |video| %>
+  <%= video.url_field :url %>
+  <%= video.text_field :description %>
+  <%= video.text_field :rating %>
+  <%= video.submit "Add Video" %>
+<% end %>
