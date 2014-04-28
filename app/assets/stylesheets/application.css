@@ -26,3 +26,17 @@ body {
 #fixed_header h1 {
     margin: 0px;
 }
+
+footer {
+    height: 40px;
+    background: #CCCC99;
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+}
+
+footer h4 {
+    margin: 0px;
+    padding-top: 10px;
+}
+
