@@ -1,18 +1,19 @@
+<h2 class="form_header">Add Picture</h2>
 <%= form_for @picture do |f| %>
 
   <p>
-    <%= f.label :url, "URL", class: "form-label" %>
+    <%= f.label :url, "URL of Photo", class: "form-label" %>
     <%= f.text_field :url %>
   </p>
 
   <p>
-    <%= f.label :description, class: "form-label" %>
-    <%= f.text_field :description %>
+    <%= f.label :description, "Short Description", class: "form-label" %>
+    <%= f.text_field :description, class: "description_field" %>
   </p>
 
   <p>
     <%= f.label :rating, class: "form-label" %>
-    <%= f.text_field :rating %>
+    <%= f.text_field :rating, class: "rating_field" %>
   </p>
 
   <p>

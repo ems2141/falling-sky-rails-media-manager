@@ -6,8 +6,8 @@ feature 'user can create pictures' do
     click_on 'All Pictures'
     click_on 'New Picture'
     expect(current_path).to eq (pictures_new_path)
-    expect(page).to have_content('URL')
-    expect(page).to have_content('Description')
+    expect(page).to have_content('URL of Photo')
+    expect(page).to have_content('Short Description')
     expect(page).to have_content('Rating')
   end
 end
