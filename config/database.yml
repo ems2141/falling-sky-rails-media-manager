@@ -78,8 +78,8 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-production:
-  <<: *default
-  database: media-manager_production
-  username: media-manager
-  password: <%= ENV['MEDIA-MANAGER_DATABASE_PASSWORD'] %>
+#production:
+#  <<: *default
+#  database: media-manager_production
+#  username: media-manager
+#  password: <%= ENV['MEDIA-MANAGER_DATABASE_PASSWORD'] %>
