@@ -14,6 +14,13 @@ feature 'user goes to homepage' do
     expect(page).to have_content 'Pictures'
     expect(current_path).to eq (pictures_path)
   end
+
+  scenario 'user clicks videos and see word "Videos and path /videos' do
+    visit '/'
+    click_link 'All Videos'
+    expect(page).to have_content 'Videos'
+    expect(current_path).to eq (videos_path)
+  end
 end
 
 
