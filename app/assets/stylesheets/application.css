@@ -19,6 +19,7 @@ body {
     padding: 0px;
 }
 #fixed_header {
+    text-align: center;
     height: 60px;
     background: greenyellow;
 }
@@ -40,3 +41,23 @@ footer h4 {
     padding-top: 10px;
 }
 
+main {
+    width: 960px;
+    margin: 0 auto;
+    border-right: 3px solid darkolivegreen;
+    border-left: 3px solid darkolivegreen;
+    background: lightskyblue;
+
+}
+.main_links {
+    width: 500px;
+    margin: 0px auto;
+    text-align: center;
+}
+.main_links a {
+    color: darkblue;
+    font: bold 18px arial, sans-serif;
+    text-decoration: none;
+    padding: 10px;
+    display: inline-block;
+}
