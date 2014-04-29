@@ -10,7 +10,11 @@ class VideosController < ApplicationController
 
   def create
     @video = Video.create(safe_params)
-    redirect_to '/videos'
+    redirect_to video_path(@video), notice: 'Video successfully created'
+  end
+
+  def show
+    @video = Video.find(params[:id])
   end
 
   private

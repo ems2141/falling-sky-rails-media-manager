@@ -1,0 +1,29 @@
+.show_container {
+    margin-top: 50px;
+    margin-right: 60px;
+    float: right;
+    font-family: sans-serif;
+    width: 300px;
+}
+
+.show_description {
+    margin-top: 30px;
+
+}
+
+.show_rating {
+    float: left;
+    clear: left;
+    margin-top: 10px;
+    margin-left: 60px;
+    font-family: sans-serif;
+}
+
+.show_video {
+    float: left;
+    margin-left: 60px;
+    margin-top: 40px;
+}
+.flash_notice {
+    padding: 10px;
+}

@@ -10,6 +10,9 @@ feature 'User can CRUD a video' do
     fill_in 'video[rating]', with: '5'
     click_on 'Add Video'
     expect(page).to have_content 'Dancing Baby'
-    expect(current_path).to eq '/videos'
+    expect(page).to have_content 'http://youtu.be/bgXPl3XM_NA'
+    expect(page).to have_content '5'
+    expect(page).to have_content 'Video successfully created'
+    expect(current_path).to eq video_path(Video.where(description: 'Dancing Baby').first)
   end
 end

@@ -1,0 +1,20 @@
+<div class="flash_notice">
+  <%= flash[:notice] %>
+</div>
+
+<div class="show_video">
+  <iframe width="448" height="252" src="//www.youtube.com/embed/<%= @video.print_youtube_id %>" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<div class="show_container">
+  <a href="<%= @video.url %>"><%= @video.url %></a>
+
+  <div class="show_description">
+    <%= @video.description %>
+  </div>
+</div>
+
+<div class="show_rating">
+  <p>Rating: <%= @video.rating %> out of 5</p>
+</div>
+
