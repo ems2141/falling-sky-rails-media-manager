@@ -25,3 +25,8 @@ form input.description_field {
 form input.rating_field {
     width: 75px;
 }
+
+.picture_frame {
+    border: 1px solid red;
+
+}

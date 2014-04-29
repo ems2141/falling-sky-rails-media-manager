@@ -25,6 +25,9 @@ feature 'user can create pictures' do
     expect(page).to have_content 'Blue horse'
     expect(page).to have_content '3'
     expect(page).to have_content  'Picture successfully created'
+    expect(page.find('.picture_frame')['src']).to have_content 'http://versatileimages.com/wp-content/uploads/2014/04/gifthorse.png'
     expect(current_path).to eq (picture_path(Picture.where(description: 'Blue horse').first))
+
+
   end
 end
