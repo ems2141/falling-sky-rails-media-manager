@@ -1,9 +1,12 @@
 <h1>Videos</h1>
 
-<%= link_to "New Video", '/videos/new' %>
+<%= link_to 'New Video', new_video_path %>
 
-<% @video.each do |video| %>
+<% @videos.each do |video| %>
 <%= video.url %>
 <%= video.description %>
 <%= video.rating %>
 <% end %>
+
+
+

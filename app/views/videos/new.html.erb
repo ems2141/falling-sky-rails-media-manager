@@ -1,6 +1,23 @@
-<%= form_for @video do |video| %>
-  <%= video.url_field :url %>
-  <%= video.text_field :description %>
-  <%= video.text_field :rating %>
-  <%= video.submit "Add Video" %>
+<h2 class="form_header">Add Video</h2>
+<%= form_for @video do |f| %>
+
+  <p>
+    <%= f.label :url, "URL of Video", class: "form-label" %>
+    <%= f.text_field :url %>
+  </p>
+
+  <p>
+    <%= f.label :description, "Short Description", class: "form-label" %>
+    <%= f.text_field :description, class: "description_field" %>
+  </p>
+
+  <p>
+    <%= f.label :rating, class: "form-label" %>
+    <%= f.text_field :rating, class: "rating_field" %>
+  </p>
+
+  <p>
+    <%= f.submit "Add Video", class: "form-button" %>
+  </p>
+
 <% end %>

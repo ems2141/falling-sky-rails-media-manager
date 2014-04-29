@@ -7,3 +7,4 @@ class CreateVideo < ActiveRecord::Migration
     end
   end
 end
+
