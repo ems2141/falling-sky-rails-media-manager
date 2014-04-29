@@ -1,6 +1,21 @@
-<p><%= flash[:notice] %></p>
+<div class="flash_notice">
+  <p><%= flash[:notice] %></p>
+</div>
 
-<p><%= @picture.url %></p>
-<p><%= @picture.description %></p>
-<p><%= @picture.rating %></p>
-  <img class="picture_frame" src="<%= @picture.url %>">
+
+
+<div class="show_pic">
+  <img width="448" height="252" class="picture_frame" src="<%= @picture.url %>" frameborder="0" allowfullscreen>
+
+  <div class="show_container">
+    <a href="<%= @picture.url %>"><%= @picture.url %></a>
+
+    <div class="show_description">
+      <%= simple_format(@picture.description)%>
+    </div>
+  </div>
+
+  <div class="show_pic_rating">
+    <p>Rating: <%= @picture.rating %> out of 5</p>
+  </div>
+</div>
