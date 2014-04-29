@@ -5,9 +5,26 @@ feature 'user can create pictures' do
     visit '/'
     click_on 'all pictures'
     click_on 'New Picture'
-    expect(current_path).to eq (pictures_new_path)
+    expect(current_path).to eq (new_picture_path)
     expect(page).to have_content('URL of Photo')
     expect(page).to have_content('Short Description')
     expect(page).to have_content('Rating')
+  end
+
+  scenario 'User can submit a new picture'do
+    visit '/'
+    click_on 'all pictures'
+    click_on 'New Picture'
+    expect(current_path).to eq (new_picture_path)
+
+    fill_in 'picture[url]', with: 'http://versatileimages.com/wp-content/uploads/2014/04/gifthorse.png'
+    fill_in 'picture[description]', with: 'Blue horse'
+    fill_in 'picture[rating]', with: '3'
+    click_on 'Create Picture'
+
+    expect(page).to have_content 'Blue horse'
+    expect(page).to have_content '3'
+    expect(page).to have_content  'Picture successfully created'
+    expect(current_path).to eq (picture_path(Picture.where(description: 'Blue horse').first))
   end
 end
