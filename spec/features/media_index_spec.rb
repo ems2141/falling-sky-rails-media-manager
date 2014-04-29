@@ -10,14 +10,14 @@ feature 'user goes to homepage' do
 
   scenario 'user clicks all pix and see word "pictures" and path /pictures' do
     visit '/'
-    click_on 'All Pictures'
+    click_on 'all pictures'
     expect(page).to have_content 'Pictures'
     expect(current_path).to eq (pictures_path)
   end
 
   scenario 'user clicks videos and see word "Videos and path /videos' do
     visit '/'
-    click_link 'All Videos'
+    click_link 'all videos'
     expect(page).to have_content 'Videos'
     expect(current_path).to eq (videos_path)
   end
