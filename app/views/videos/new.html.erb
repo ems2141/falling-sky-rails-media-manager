@@ -1,5 +1,12 @@
+<% if flash[:notice] %>
+  <p><%= flash[:notice] %></p>
+<% end %>
 <h2 class="form_header">Add Video</h2>
 <%= form_for @video do |f| %>
+
+  <% @video.errors.messages.each do |error| %>
+ <p class="error"><%= error.last.first %></p>
+  <% end %>
 
   <p>
     <%= f.label :url, "URL of Video", class: "form-label" %>
