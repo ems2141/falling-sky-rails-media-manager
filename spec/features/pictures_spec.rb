@@ -75,6 +75,6 @@ feature 'user can create pictures' do
 
     expect(Picture.find_by_url('blah')).to eq nil
 
-    expect(page).to have_content 'Enter a valid URL'
+    expect(page).to have_content 'URL must be valid'
   end
 end
