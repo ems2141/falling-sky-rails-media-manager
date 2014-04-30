@@ -10,7 +10,12 @@ class VideosController < ApplicationController
 
   def create
     @video = Video.create(safe_params)
-    redirect_to video_path(@video), notice: 'Video successfully created'
+
+    if @video.save
+      redirect_to video_path(@video), notice: "Video successfully created"
+    else
+      render new_video_path, notice: "Something went wrong"
+    end
   end
 
   def show
