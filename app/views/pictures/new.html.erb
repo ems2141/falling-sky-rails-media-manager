@@ -5,8 +5,8 @@
 <h2 class="form_header">Add Picture</h2>
 <%= form_for @picture do |f| %>
 
-  <% @picture.errors.messages.each do |error| %>
-    <%= error.last.first %>
+  <% @picture.errors.full_messages.each do |error| %>
+    <%= error.gsub("Url", "URL") %>
   <% end %>
 
 
