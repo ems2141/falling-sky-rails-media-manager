@@ -10,8 +10,8 @@
   <a href="<%= @video.url %>"><%= @video.url %></a>
 
   <div class="show_description">
-    <%= @video.description %>
-  </div>
+    <%= simple_format(@video.description) %>
+  </div>  
 </div>
 
 <div class="show_rating">
