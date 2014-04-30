@@ -62,4 +62,19 @@ feature 'user can create pictures' do
     expect(page).to have_content 'Description cannot be blank'
     expect(page.find('#picture_url')['value']).to have_content 'http://youtube.com'
   end
+
+  scenario 'user must submit a valid URL' do
+    visit '/'
+    click_on 'all pictures'
+    click_on 'New Picture'
+
+    fill_in 'picture[url]', with: 'blah'
+    fill_in 'picture[description]', with: 'blah blah'
+    fill_in 'picture[rating]', with: '5'
+    click_on 'Create Picture'
+
+    expect(Picture.find_by_url('blah')).to eq nil
+
+    expect(page).to have_content 'Enter a valid URL'
+  end
 end
