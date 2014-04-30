@@ -27,7 +27,23 @@ feature 'user can create pictures' do
     expect(page).to have_content  'Picture successfully created'
     expect(page.find('.picture_frame')['src']).to have_content 'http://versatileimages.com/wp-content/uploads/2014/04/gifthorse.png'
     expect(current_path).to eq (picture_path(Picture.where(description: 'Blue horse').first))
+  end
 
+  scenario 'Url field cannot be blank' do
+    visit '/'
+    click_on 'all pictures'
+    click_on 'New Picture'
 
+    fill_in 'picture[url]', with: '            '
+    fill_in 'picture[description]', with: 'Blue horse'
+    fill_in 'picture[rating]', with: '3'
+    click_on 'Create Picture'
+
+    expect(Picture.find_by_description('Blue horse')).to eq nil
+
+    expect(page).to have_content 'URL cannot be blank'
+    within('textarea') do
+      expect(page).to have_content 'Blue horse'
+    end
   end
 end

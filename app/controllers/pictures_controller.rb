@@ -9,12 +9,16 @@ class PicturesController < ApplicationController
   end
 
   def create
-    @picture = Picture.create(
+    @picture = Picture.new(
       url: params[:picture][:url],
       description: params[:picture][:description],
       rating: params[:picture][:rating]
     )
-    redirect_to picture_path(@picture), notice: "Picture successfully created"
+    if @picture.save
+      redirect_to picture_path(@picture), notice: "Picture successfully created"
+    else
+      render new_picture_path, notice: "Something went wrong"
+    end
   end
 
   def show

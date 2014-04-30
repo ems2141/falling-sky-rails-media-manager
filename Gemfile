@@ -15,4 +15,5 @@ gem 'rails_12factor', '~> 0.0.2'
 group :development, :test do
   gem 'rspec-rails', '~> 2.14.2'
   gem 'capybara', '~> 2.2.1'
+  gem 'launchy'
 end
