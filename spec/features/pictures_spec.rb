@@ -11,7 +11,7 @@ feature 'user can create pictures' do
     expect(page).to have_content('Rating')
   end
 
-  scenario 'User can submit a new picture'do
+  scenario 'User can submit a new picture' do
     visit '/'
     click_on 'all pictures'
     click_on 'New Picture'
@@ -24,7 +24,7 @@ feature 'user can create pictures' do
 
     expect(page).to have_content 'Blue horse'
     expect(page).to have_content '3'
-    expect(page).to have_content  'Picture successfully created'
+    expect(page).to have_content 'Picture successfully created'
     expect(page.find('.picture_frame')['src']).to have_content 'http://versatileimages.com/wp-content/uploads/2014/04/gifthorse.png'
     expect(current_path).to eq (picture_path(Picture.where(description: 'Blue horse').first))
   end
@@ -45,5 +45,21 @@ feature 'user can create pictures' do
     within('textarea') do
       expect(page).to have_content 'Blue horse'
     end
+  end
+
+  scenario 'Description field cannot be blank' do
+    visit '/'
+    click_on 'all pictures'
+    click_on 'New Picture'
+
+    fill_in 'picture[url]', with: 'http://youtube.com'
+    fill_in 'picture[description]', with: ' '
+    fill_in 'picture[rating]', with: '5'
+    click_on 'Create Picture'
+
+    expect(Picture.find_by_url('http://youtube.com')).to eq nil
+
+    expect(page).to have_content 'Description cannot be blank'
+    expect(page.find('#picture_url')['value']).to have_content 'http://youtube.com'
   end
 end

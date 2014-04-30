@@ -17,7 +17,7 @@ class PicturesController < ApplicationController
     if @picture.save
       redirect_to picture_path(@picture), notice: "Picture successfully created"
     else
-      render new_picture_path, notice: "Something went wrong"
+      render new_picture_path
     end
   end
 
