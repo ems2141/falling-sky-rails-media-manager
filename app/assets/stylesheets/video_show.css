@@ -9,21 +9,28 @@
 .show_description {
     margin-top: 30px;
 
+
 }
 
 .show_rating {
     float: left;
     clear: left;
     margin-top: 10px;
-    margin-left: 60px;
+    margin-left:10px;
     font-family: sans-serif;
 }
 
 .show_video {
     float: left;
-    margin-left: 60px;
+    margin-left: 10px;
     margin-top: 40px;
 }
 .flash_notice {
     padding: 10px;
+}
+
+textarea.description {
+    width: 308px;
+    height: 75px;
+    border: 2px solid black;
 }
