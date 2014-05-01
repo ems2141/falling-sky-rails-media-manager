@@ -40,16 +40,31 @@ feature 'User can CRUD a video' do
   end
 
 
-scenario 'Url field cannot be blank' do
-  visit '/'
-  click_on 'all videos'
-  click_on 'New Video'
+  scenario 'Url field cannot be blank' do
+    visit '/'
+    click_on 'all videos'
+    click_on 'New Video'
 
-  fill_in 'video[url]', with: '            '
-  fill_in 'video[description]', with: 'Blue horse'
-  fill_in 'video[rating]', with: '3'
-  click_on 'Add Video'
+    fill_in 'video[url]', with: '            '
+    fill_in 'video[description]', with: 'Blue horse'
+    fill_in 'video[rating]', with: '3'
+    click_on 'Add Video'
 
-  expect(page).to have_content 'URL cannot be blank'
-end
+    expect(page).to have_content 'URL cannot be blank'
+  end
+
+  scenario 'Url must be valid' do
+    visit '/'
+    click_on 'all videos'
+    click_on 'New Video'
+
+    fill_in 'video[url]', with: 'poop'
+    fill_in 'video[description]', with: 'Blue horse'
+    fill_in 'video[rating]', with: '3'
+    click_on 'Add Video'
+
+    expect(Video.find_by_url('poop')).to eq nil
+
+    expect(page).to have_content 'URL must be valid'
+  end
 end
