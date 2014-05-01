@@ -89,4 +89,18 @@ feature 'user can create pictures' do
 
     expect(page).to have_content 'Rating must be between 0 and 5'
   end
+
+  scenario 'user can see all pictures and click on the picture to view the show page' do
+    Picture.create(url: 'http://versatileimages.com/wp-content/uploads/2014/04/gifthorse.png', description: 'Blue horse', rating: 5)
+    visit '/'
+    click_on 'all pictures'
+    expect(page.find('img')['src']).to have_content('http://versatileimages.com/wp-content/uploads/2014/04/gifthorse.png')
+    find('.image').click
+    expect(page).to have_content ('Blue horse')
+  end
 end
+
+#a user clicks "all pictures"
+#Then they should see all the pictures
+#And clicking on a picture should go to the show page for the picture
+#                                                       the path should be /pictures

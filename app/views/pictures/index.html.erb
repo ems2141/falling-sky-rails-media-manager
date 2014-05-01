@@ -2,3 +2,6 @@
 
 <%= link_to 'New Picture', new_picture_path %>
 
+<% @pictures.each do |picture| %>
+  <a href="<%= "/pictures/#{picture.id}" %>" class="image"><img src="<%= picture.url %>"></a>
+<% end %>
