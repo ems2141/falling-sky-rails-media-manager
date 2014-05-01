@@ -4,7 +4,9 @@
 <section class="pictures">
 
   <% @pictures.each do |picture| %>
-    <a href="<%= "/pictures/#{picture.id}" %>" class="indexed_image"><img src="<%= picture.url %>"></a>
+    <div class="frame">
+      <a href="<%= "/pictures/#{picture.id}" %>" class="indexed_image"><img src="<%= picture.url %>"></a>
+    </div>
   <% end %>
 
 </section>

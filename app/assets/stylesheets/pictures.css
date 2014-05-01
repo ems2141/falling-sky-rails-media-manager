@@ -80,8 +80,14 @@ textarea.description {
     display: block;
 }
 .indexed_image img {
-    float: left;
+    /*float: left;*/
     margin: 10px 25px;
     width: 150px;
     height: auto;
+    max-height: 250px;
+}
+.frame {
+    width: 250px;
+    height: 250px;
+    float: left;
 }
