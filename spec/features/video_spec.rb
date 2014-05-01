@@ -94,4 +94,28 @@ feature 'User can CRUD a video' do
     expect(page).to have_content 'Description cannot be blank'
 
   end
+
+  scenario 'User can edit a video by clicking edit from the show page' do
+    Video.create(url: 'http://youtu.be/bgXPl3XM_NA', description: 'Youtube', rating: 5)
+    visit '/'
+    click_on 'all videos'
+    click_on 'http://youtu.be/bgXPl3XM_NA'
+    click_on 'Edit'
+
+    fill_in 'video[rating]', with: '4'
+    click_on 'Edit Video'
+    expect(page).to have_content '4'
+  end
+
+  scenario 'User is given an error if rating is more than 5' do
+      Video.create(url: 'http://youtu.be/bgXPl3XM_NA', description: 'Youtube', rating: 5)
+      visit '/'
+      click_on 'all videos'
+      click_on 'http://youtu.be/bgXPl3XM_NA'
+      click_on 'Edit'
+
+      fill_in 'video[rating]', with: '45'
+      click_on 'Edit Video'
+      expect(page).to have_content 'Rating must be between 0 and 5'
+  end
 end
