@@ -45,7 +45,7 @@ form input.rating_field {
     margin-right: 60px;
     float: right;
     font-family: sans-serif;
-    width: 300px;
+    width: 350px;
 }
 
 .show_description {
@@ -90,4 +90,7 @@ textarea.description {
     width: 250px;
     height: 250px;
     float: left;
+}
+.edit_button {
+    margin-left: 10px;
 }
