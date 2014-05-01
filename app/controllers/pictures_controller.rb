@@ -35,8 +35,12 @@ class PicturesController < ApplicationController
     @picture.url = params[:picture][:url]
     @picture.description = params[:picture][:description]
     @picture.rating = params[:picture][:rating]
-    @picture.save
 
-    redirect_to picture_path(@picture)
+    if @picture.save
+      redirect_to picture_path(@picture)
+    else
+      redirect_to edit_picture_path(@picture), notice: "Field cannot be empty"
+    end
+
   end
 end

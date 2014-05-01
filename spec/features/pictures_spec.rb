@@ -100,7 +100,7 @@ feature 'user can create pictures' do
   end
 
   scenario 'User can edit a picture' do
-    picture = Picture.create(url: 'http://versatileimages.com/wp-content/uploads/2014/04/gifthorse.png', description: 'Blue horse', rating: 5)
+    Picture.create(url: 'http://versatileimages.com/wp-content/uploads/2014/04/gifthorse.png', description: 'Blue horse', rating: 5)
     visit '/'
     click_on 'all pictures'
     expect(page.find('img')['src']).to have_content('http://versatileimages.com/wp-content/uploads/2014/04/gifthorse.png')
@@ -114,4 +114,21 @@ feature 'user can create pictures' do
     expect(page).to have_content 'http://i.imgur.com/QhFa9u4.jpg'
     expect(page).to have_content 4
   end
+
+  scenario 'User can see error messages when editing a picture' do
+    Picture.create(url: 'http://versatileimages.com/wp-content/uploads/2014/04/gifthorse.png', description: 'Blue horse', rating: 5)
+    visit '/'
+    click_on 'all pictures'
+    expect(page.find('img')['src']).to have_content('http://versatileimages.com/wp-content/uploads/2014/04/gifthorse.png')
+    find('.indexed_image').click
+    click_link 'Edit'
+    fill_in 'picture[url]', with: 'http://i.imgur.com/QhFa9u4.jpg'
+    fill_in 'picture[description]', with: ''
+    fill_in 'picture[rating]', with: 4
+    click_on 'Update Picture'
+    expect(page).to have_content 'Field cannot be empty'
+    expect(page.find('#picture_url')['value']).to have_content 'http://versatileimages.com/wp-content/uploads/2014/04/gifthorse.png'
+    expect(page.find('#picture_rating')['value']).to have_content 5
+  end
+
 end
