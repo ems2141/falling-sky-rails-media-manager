@@ -18,7 +18,6 @@ feature 'user goes to homepage' do
   scenario 'user clicks videos and see word "Videos and path /videos' do
     visit '/'
     click_link 'all videos'
-    expect(page).to have_content 'Videos'
     expect(current_path).to eq (videos_path)
   end
 end

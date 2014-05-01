@@ -61,11 +61,11 @@ footer h4 {
     width: 960px;
     margin: auto;
 }
-
 main {
-    width: 960px;
+    width: 890px;
     margin: 0 auto;
     min-height: 600px;
+    padding: 25px 0 25px 70px;
     background: #fff;
 }
 .main_links {
@@ -84,4 +84,7 @@ main {
 .main_links a:first-child {
     border-right: 2px solid white;
     padding-right: 25px;
+}
+.new_video_link {
+    margin-top: 0px;
 }

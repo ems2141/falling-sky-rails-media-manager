@@ -73,11 +73,3 @@ textarea.description {
     height: 75px;
     border: 2px solid black;
 }
-
-main {
-    width: 890px;
-    margin: 0 auto;
-    min-height: 600px;
-    padding-left: 70px;
-    background: #fff;
-}
