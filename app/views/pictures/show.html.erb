@@ -9,6 +9,7 @@
 
   <div class="show_container">
     <a href="<%= @picture.url %>"><%= @picture.url %></a>
+    <%= link_to '(Edit)', edit_picture_path(@picture), class: 'edit_button' %>
 
     <div class="show_description">
       <%= simple_format(@picture.description)%>
