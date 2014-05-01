@@ -67,6 +67,7 @@ main {
     min-height: 600px;
     padding: 25px 0 25px 70px;
     background: #fff;
+    overflow: hidden;
 }
 .main_links {
     width: 500px;

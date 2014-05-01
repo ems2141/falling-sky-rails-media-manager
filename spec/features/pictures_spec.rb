@@ -95,7 +95,7 @@ feature 'user can create pictures' do
     visit '/'
     click_on 'all pictures'
     expect(page.find('img')['src']).to have_content('http://versatileimages.com/wp-content/uploads/2014/04/gifthorse.png')
-    find('.image').click
+    find('.indexed_image').click
     expect(page).to have_content ('Blue horse')
   end
 end

@@ -1,7 +1,10 @@
 <h1>Pictures</h1>
 
 <%= link_to 'New Picture', new_picture_path %>
+<section class="pictures">
 
-<% @pictures.each do |picture| %>
-  <a href="<%= "/pictures/#{picture.id}" %>" class="image"><img src="<%= picture.url %>"></a>
-<% end %>
+  <% @pictures.each do |picture| %>
+    <a href="<%= "/pictures/#{picture.id}" %>" class="indexed_image"><img src="<%= picture.url %>"></a>
+  <% end %>
+
+</section>
