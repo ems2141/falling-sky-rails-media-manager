@@ -13,6 +13,8 @@ class Video < ActiveRecord::Base
     message: "Rating must be between 0 and 5"
   }
 
+  validates :description, presence: {message: "Description cannot be blank"}
+
   def print_youtube_id
     self.url.split('=').last
   end

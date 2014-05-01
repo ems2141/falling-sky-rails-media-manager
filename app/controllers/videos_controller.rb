@@ -14,7 +14,7 @@ class VideosController < ApplicationController
     if @video.save
       redirect_to video_path(@video), notice: "Video successfully created"
     else
-      render new_video_path, notice: "Something went wrong"
+      render new_video_path
     end
   end
 
@@ -27,6 +27,4 @@ class VideosController < ApplicationController
   def safe_params
     params.require(:video).permit(:url, :description, :rating)
   end
-
-
 end

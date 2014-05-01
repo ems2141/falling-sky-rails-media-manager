@@ -80,4 +80,18 @@ feature 'User can CRUD a video' do
 
     expect(page).to have_content 'Rating must be between 0 and 5'
   end
+
+  scenario 'Description cannot be blank' do
+    visit '/'
+    click_on 'all videos'
+    click_on 'New Video'
+
+    fill_in 'video[url]', with: 'http://youtu.be/bgXPl3XM_NA'
+    fill_in 'video[description]', with: ''
+    fill_in 'video[rating]', with: '3'
+    click_on 'Add Video'
+
+    expect(page).to have_content 'Description cannot be blank'
+
+  end
 end
