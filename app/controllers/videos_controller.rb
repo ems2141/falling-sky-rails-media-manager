@@ -14,12 +14,26 @@ class VideosController < ApplicationController
     if @video.save
       redirect_to video_path(@video), notice: "Video successfully created"
     else
-      render new_video_path
+      render "new"
     end
   end
 
   def show
     @video = Video.find(params[:id])
+  end
+
+  def edit
+    @video = Video.find(params[:id])
+  end
+
+  def update
+    @video = Video.find(params[:id])
+    @video.update(safe_params)
+    if @video.save
+      redirect_to video_path(@video), notice: "Video successfully updated"
+    else
+      render "edit"
+    end
   end
 
   private
