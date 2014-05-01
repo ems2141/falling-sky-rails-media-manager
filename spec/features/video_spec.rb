@@ -67,4 +67,17 @@ feature 'User can CRUD a video' do
 
     expect(page).to have_content 'URL must be valid'
   end
+
+  scenario 'Ratings must be a value from 0-5' do
+    visit '/'
+    click_on 'all videos'
+    click_on 'New Video'
+
+    fill_in 'video[url]', with: 'poop'
+    fill_in 'video[description]', with: 'Blue horse'
+    fill_in 'video[rating]', with: '100'
+    click_on 'Add Video'
+
+    expect(page).to have_content 'Rating must be between 0 and 5'
+  end
 end
