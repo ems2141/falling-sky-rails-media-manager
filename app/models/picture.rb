@@ -2,4 +2,9 @@ class Picture < ActiveRecord::Base
   validates :url, presence: { message: "cannot be blank" }
   validates :url, format: { with: URI::regexp(['http', 'https']), message: "must be valid" }
   validates :description, presence: { message: "cannot be blank" }
+  validates :rating, numericality: {
+    less_than_or_equal_to: 5,
+    greater_than_or_equal_to: 0,
+    message: "must be between 0 and 5"
+  }
 end

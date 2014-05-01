@@ -6,7 +6,7 @@
 <%= form_for @picture do |f| %>
 
   <% @picture.errors.full_messages.each do |error| %>
-    <%= error.gsub("Url", "URL") %>
+    <p class="error"> <%= error.gsub("Url", "URL") %></p>
   <% end %>
 
 

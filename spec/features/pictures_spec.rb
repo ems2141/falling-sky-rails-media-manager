@@ -77,4 +77,16 @@ feature 'user can create pictures' do
 
     expect(page).to have_content 'URL must be valid'
   end
+  scenario 'Ratings must be a value from 0-5' do
+    visit '/'
+    click_on 'all pictures'
+    click_on 'New Picture'
+
+    fill_in 'picture[url]', with: 'http://versatileimages.com/wp-content/uploads/2014/04/gifthorse.png'
+    fill_in 'picture[description]', with: 'Blue horse'
+    fill_in 'picture[rating]', with: '100'
+    click_on 'Create Picture'
+
+    expect(page).to have_content 'Rating must be between 0 and 5'
+  end
 end
