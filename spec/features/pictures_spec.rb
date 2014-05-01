@@ -98,9 +98,16 @@ feature 'user can create pictures' do
     find('.indexed_image').click
     expect(page).to have_content ('Blue horse')
   end
-end
 
-#a user clicks "all pictures"
-#Then they should see all the pictures
-#And clicking on a picture should go to the show page for the picture
-#                                                       the path should be /pictures
+  scenario 'User can see an edit form with fields filled in' do
+    picture = Picture.create(url: 'http://versatileimages.com/wp-content/uploads/2014/04/gifthorse.png', description: 'Blue horse', rating: 5)
+    visit '/'
+    click_on 'all pictures'
+    expect(page.find('img')['src']).to have_content('http://versatileimages.com/wp-content/uploads/2014/04/gifthorse.png')
+    find('.indexed_image').click
+    click_link 'Edit'
+    expect(page).to have_content 'Blue horse'
+    expect(page.find('#picture_rating')['value']).to have_content 5
+    expect(page.find('#picture_url')['value']).to have_content picture.url
+  end
+end
